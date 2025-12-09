@@ -1,0 +1,21 @@
+.table-container {
+  padding: 40px;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 70%;
+  background: black;
+  color: white;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid gold;
+}
+
+th {
+  background: #222;
+}

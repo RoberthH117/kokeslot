@@ -1,0 +1,19 @@
+<div class="table-container">
+  <h2>Leaderboard</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Monto Jugado</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of players">
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.apuesta | currency:'USD' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

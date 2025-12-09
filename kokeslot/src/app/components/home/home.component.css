@@ -1,0 +1,76 @@
+.home-container {
+  width: 100%;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-image: url('/assets/images/arquitectura-de-casino-futurista.jpg');
+
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 90px;
+  font-weight: 900;
+  color: gold;
+  text-shadow: 0px 0px 20px rgba(255,215,0,0.7);
+}
+
+.subtitle {
+  font-size: 28px;
+  color: white;
+  margin-top: 15px;
+}
+
+.affiliate-panel {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(20,20,20,0.8);
+  border: 2px solid gold;
+  border-radius: 10px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.affiliate-panel h3 {
+  color: gold;
+  margin-bottom: 15px;
+}
+
+.affiliate-panel input {
+  width: 80%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.affiliate-panel button {
+  padding: 8px 20px;
+  background: gold;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.affiliate-panel p {
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+}
+
