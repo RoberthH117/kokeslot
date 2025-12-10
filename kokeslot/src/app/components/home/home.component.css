@@ -8,6 +8,13 @@
   background-image: url('/assets/images/arquitectura-de-casino-futurista.jpg');
 
 }
+/* Imagen grande encima del título */
+.logo {
+  width: 500px;  /* ajusta el tamaño como quieras */
+  max-width: 80%; /* responsive */
+  margin-bottom: 0px;
+}
+
 
 .overlay {
   width: 100%;
