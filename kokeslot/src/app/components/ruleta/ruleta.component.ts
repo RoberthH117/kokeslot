@@ -94,14 +94,24 @@ public ganadorNombre: string = '';
     this.generarRuleta();
   }
 
-  girarRuleta() {
-    if (this.girando || this.usuarios.length < 2) return;
+girarRuleta() {
+  if (this.girando || this.usuarios.length < 2) return;
 
-    this.girando = true;
-    this.rueda.stopAnimation(false);
-    this.rueda.rotationAngle = 0;
-    this.rueda.startAnimation();
-  }
+  this.girando = true;
+  this.rueda.stopAnimation(false);
+  this.rueda.rotationAngle = 0;
+
+  // Establecer un intervalo para checar cuando la rueda deja de girar
+  const checkRueda = setInterval(() => {
+    if (!this.rueda.animation) { // la animación terminó
+      this.obtenerGanador(this.rueda.getIndicatedSegment());
+      clearInterval(checkRueda);
+    }
+  }, 50);
+
+  this.rueda.startAnimation();
+}
+
 
   obtenerGanador(segmento: any) {
     this.ganador = segmento.text;
