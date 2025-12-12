@@ -27,7 +27,7 @@ namespace kokeslot_Backend.Services
                 throw new Exception("StatsUrl vacío o no definido en appsettings.json");
 
             var url =
-                $"{_statsUrl}?userId={_affiliateId}&startDate={startDate}&endDate={endDate}&categories=slots";
+                $"{_statsUrl}?userId={_affiliateId}&startDate={startDate}&endDate={endDate}&categories=slots,provably fair";
 
             var response = await _http.GetAsync(url);
             return await response.Content.ReadAsStringAsync();
