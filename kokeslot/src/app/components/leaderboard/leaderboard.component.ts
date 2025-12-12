@@ -30,21 +30,47 @@ ngOnInit() {
   this.cargarStats();
 }
 
+// getCurrentPeriod() {
+//   const today = new Date();
+//   let start: Date;
+//   let end: Date;
+
+//   const day = today.getDate();
+
+//   if (day >= 15) {
+//     // Estamos en el ciclo 15 del mes actual → 14 del mes siguiente
+//     start = new Date(today.getFullYear(), today.getMonth(), 15, 0, 0, 0);
+//     end = new Date(today.getFullYear(), today.getMonth() + 1, 14, 23, 59, 59);
+//   } else {
+//     // Estamos en el ciclo 15 del mes anterior → 14 del mes actual
+//     start = new Date(today.getFullYear(), today.getMonth() - 1, 15, 0, 0, 0);
+//     end = new Date(today.getFullYear(), today.getMonth(), 14, 23, 59, 59);
+//   }
+
+//   return {
+//     startISO: start.toISOString(),
+//     endISO: end.toISOString(),
+//   };
+// }
+
+
 getCurrentPeriod() {
   const today = new Date();
   let start: Date;
   let end: Date;
 
   const day = today.getDate();
+  const year = today.getFullYear();
+  const month = today.getMonth();
 
   if (day >= 15) {
-    // Estamos en el ciclo 15 del mes actual → 14 del mes siguiente
-    start = new Date(today.getFullYear(), today.getMonth(), 15, 0, 0, 0);
-    end = new Date(today.getFullYear(), today.getMonth() + 1, 14, 23, 59, 59);
+    // 15 del mes actual → 14 del mes siguiente
+    start = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+    end   = new Date(Date.UTC(year, month + 1, 14, 23, 59, 59));
   } else {
-    // Estamos en el ciclo 15 del mes anterior → 14 del mes actual
-    start = new Date(today.getFullYear(), today.getMonth() - 1, 15, 0, 0, 0);
-    end = new Date(today.getFullYear(), today.getMonth(), 14, 23, 59, 59);
+    // 15 del mes anterior → 14 del mes actual
+    start = new Date(Date.UTC(year, month - 1, 15, 0, 0, 0));
+    end   = new Date(Date.UTC(year, month, 14, 23, 59, 59));
   }
 
   return {
@@ -52,7 +78,6 @@ getCurrentPeriod() {
     endISO: end.toISOString(),
   };
 }
-
 
 cargarStats() {
 const { startISO, endISO } = this.getCurrentPeriod();
