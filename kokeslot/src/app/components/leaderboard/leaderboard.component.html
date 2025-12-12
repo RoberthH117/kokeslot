@@ -1,19 +1,83 @@
-<div class="table-container">
-  <h2>Leaderboard</h2>
+<!-- <div class="container mt-4">
 
-  <table>
+  <h2>Leaderboard últimos 30 días</h2>
+  <button class="btn btn-warning" (click)="cargarStats()">Cargar Stats</button>
+
+  <pre *ngIf="stats">{{ stats | json }}</pre>
+
+  <hr>
+
+
+</div> -->
+
+
+
+<div class="leaderboard-container">
+
+  <!-- CONTADOR -->
+  <div class="countdown-box">
+    <h2>⏳ Termina en:</h2>
+    <div class="time">
+      {{ countdown.days }}d : {{ countdown.hours }}h : {{ countdown.minutes }}m : {{ countdown.seconds }}s
+    </div>
+  </div>
+
+  <!-- TOP 3 -->
+  <div class="podium">
+    <div class="podium-item second">
+      <h3>#2 {{ top3[1]?.username }}</h3>
+      <p>Apostado: {{ top3[1]?.wagered | number:'1.0-2' }}</p>
+      <p class="prize">🏆 Premio: $100</p>
+    </div>
+
+    <div class="podium-item first">
+      <h2>#1 {{ top3[0]?.username }}</h2>
+      <p>Apostado: {{ top3[0]?.wagered | number:'1.0-2' }}</p>
+      <p class="prize big">🥇 Premio: $250</p>
+    </div>
+
+    <div class="podium-item third">
+      <h3>#3 {{ top3[2]?.username }}</h3>
+      <p>Apostado: {{ top3[2]?.wagered | number:'1.0-2' }}</p>
+      <p class="prize">🎉 Premio: $75</p>
+    </div>
+  </div>
+
+  <!-- TABLA -->
+  <h2 class="mt-4">Leaderboard</h2>
+
+  <table class="table table-dark neon-table">
     <thead>
-      <tr>
+      <tr class="tablatr">
+        <th>#</th>
         <th>Usuario</th>
-        <th>Monto Jugado</th>
+        <th>Apostado</th>
+        <th>Premio</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr *ngFor="let p of players">
-        <td>{{ p.nombre }}</td>
-        <td>{{ p.apuesta | currency:'USD' }}</td>
+      <tr class="tablatr" *ngFor="let item of leaderboard; let i = index">
+        <td>{{ i + 4 }}</td> <!-- porque top3 son 1-3 -->
+        <td>{{ item.username }}</td>
+        <td>{{ item.wagered | number:'1.0-2' }}</td>
+
+        <td>
+          <span *ngIf="i + 4 <= 5">
+            🏆
+            {{
+              (i + 4 === 4 && '50') ||
+              (i + 4 === 5 && '25')
+            }}
+          </span>
+          <span *ngIf="i + 4 > 5">-</span>
+        </td>
+
+       
+
+  
       </tr>
     </tbody>
   </table>
+
 </div>

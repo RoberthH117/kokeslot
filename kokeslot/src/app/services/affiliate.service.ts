@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { EnvService } from './env.service';
 
 interface ValidacionResponse {
   isAffiliate: boolean;
@@ -9,23 +10,19 @@ interface ValidacionResponse {
 @Injectable({
   providedIn: 'root'
 })
-export class AffiliateService {
+export class AffiliateValidateService {
 
-  private baseUrl = 'https://roobet.com/_api';
-  private affiliateId = 'Kokeslots'; // Aquí pones tu ID de Coqueslot
-
-
-  constructor(private http: HttpClient) {}
-
-  validarUsuario(username: string): Observable<ValidacionResponse> {
-
-
-    const params = {
-      username,
-      affiliateId: this.affiliateId,
-      userId: '' // opcional, si no tienes userId
-    };
-
-    return this.http.get<ValidacionResponse>(`${this.baseUrl}/affiliate/validateUser`, { params });
+  constructor(
+    private http: HttpClient,
+    private env: EnvService
+  ) {
+    
   }
+
+validateUser(username: string) {
+  return this.http.get("https://localhost:44346/api/affiliate/validateUser", {
+    params: { username }
+  });
 }
+
+  }

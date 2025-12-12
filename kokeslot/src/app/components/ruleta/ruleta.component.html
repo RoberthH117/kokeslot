@@ -19,6 +19,15 @@
       Ganador: {{ ganador }}
     </div>
 
+      <h2 class="textoinput">Validar usuario</h2>
+  <input [(ngModel)]="usuario" placeholder="Nombre de usuario" class="form-control w-50">
+  <button class="btn btn-info mt-2" (click)="validar()">Validar</button>
+
+  <p *ngIf="resultado !== null" class="mt-3">
+    <strong>{{ resultado ? "El usuario pertenece a tu código" : "NO pertenece" }}</strong>
+  </p>
+
+
   
   </div>
 <!-- Modal de Ganador -->
@@ -37,15 +46,15 @@
   <h2 class="titulo-seccion">🎰 Control de Participantes</h2>
 
   <!-- AGREGAR UN USUARIO -->
-  <div class="card">
-    <h3>Agregar un usuario</h3>
+  <!-- <div class="card">
+    <h3 class="textoinput">Agregar un usuario</h3>
     <input class="input-casino" [(ngModel)]="nuevoUsuario" placeholder="Nombre">
     <button class="btn-casino" (click)="agregarUsuario()">Agregar</button>
-  </div>
+  </div> -->
 
   <!-- AGREGAR VARIOS USUARIOS -->
   <div class="card">
-    <h3>Pegar varios</h3>
+    <h3 class="textoinput">Pegar varios</h3>
     <textarea class="textarea-casino" [(ngModel)]="usuariosPegados" placeholder="Pega uno por línea"></textarea>
     <button class="btn-casino" (click)="agregarVarios()">Agregar varios</button>
   </div>
@@ -55,7 +64,7 @@
 
   <!-- LISTA DE USUARIOS -->
   <div class="card lista-scroll">
-    <h3>Usuarios actuales</h3>
+    <h3 class="textoinput">Usuarios actuales</h3>
 
     <ul class="lista-usuarios">
       <li *ngFor="let u of usuarios; let i = index">
@@ -67,7 +76,7 @@
 
   <!-- HISTORIAL -->
   <div class="card lista-scroll">
-    <h3>Historial de eliminados</h3>
+    <h3 class="textoinput">Historial de eliminados</h3>
 
     <ul class="lista-usuarios historial">
       <li *ngFor="let h of historial">{{ h }}</li>

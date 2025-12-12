@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { AffiliateValidateService } from 'src/app/services/affiliate.service';
 
 declare var Winwheel: any;
 declare var gsap: any; // usamos gsap ahora
@@ -10,8 +11,15 @@ declare var gsap: any; // usamos gsap ahora
 })
 export class RuletaComponent implements AfterViewInit {
 
+    constructor(
+         private validateService: AffiliateValidateService,
+    ){
+  
+  }
   showWinnerModal = false;
 public ganadorNombre: string = '';
+ usuario: string = "";
+ resultado: boolean | null = null;
 
   usuarios: string[] = [];
   historial: string[] = [];
@@ -22,6 +30,8 @@ public ganadorNombre: string = '';
 
   rueda: any;
   girando = false;
+
+
 
   ngAfterViewInit() {
     this.generarRuleta();
@@ -145,5 +155,16 @@ this.showWinnerModal = true;
   this.historial = [];
   this.generarRuleta();
 }
+
+
+
+  validar() {
+    if (!this.usuario.trim()) return;
+
+    this.validateService.validateUser(this.usuario)
+      .subscribe((res: any) => {
+        this.resultado = res.isAffiliate; 
+      });
+  }
 
 }
