@@ -1,9 +1,8 @@
 (function (window) {
   window.__env = window.__env || {};
 
-  window.__env.API_KEY = "";
-  window.__env.AFFILIATE_UID = "";
-  window.__env.API_STATS = "";
-  window.__env.API_VALIDATE = "";
+
+  window.__env.API_STATS = "https://kokeslot-backend.onrender.com";
+  window.__env.API_VALIDATE = "https://kokeslot-backend.onrender.com";
 
 })(this);

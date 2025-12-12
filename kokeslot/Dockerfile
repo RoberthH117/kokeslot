@@ -21,6 +21,7 @@ FROM nginx:alpine
 # Copiar la build al directorio de Nginx
 COPY --from=build /app/dist/kokeslot /usr/share/nginx/html
 
+
 # Copiar configuración de Nginx si quieres personalizar
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
