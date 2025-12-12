@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\kokeslot_Backend.props" />
+</Project>
