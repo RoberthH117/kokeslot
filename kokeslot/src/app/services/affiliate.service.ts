@@ -20,7 +20,7 @@ export class AffiliateValidateService {
   }
 
 validateUser(username: string) {
-  return this.http.get("https://localhost:44346/api/affiliate/validateUser", {
+  return this.http.get("https://kokeslot-backend.onrender.com/api/affiliate/validateUser", {
     params: { username }
   });
 }
