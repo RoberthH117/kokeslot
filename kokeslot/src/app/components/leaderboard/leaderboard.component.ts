@@ -30,11 +30,34 @@ ngOnInit() {
   this.cargarStats();
 }
 
-cargarStats() {
-  const end = new Date().toISOString();
-  const start = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+getCurrentPeriod() {
+  const today = new Date();
+  let start: Date;
+  let end: Date;
 
-  this.statsService.getStats(start, end).subscribe((res: any[]) => {
+  const day = today.getDate();
+
+  if (day >= 15) {
+    // Estamos en el ciclo 15 del mes actual → 14 del mes siguiente
+    start = new Date(today.getFullYear(), today.getMonth(), 15, 0, 0, 0);
+    end = new Date(today.getFullYear(), today.getMonth() + 1, 14, 23, 59, 59);
+  } else {
+    // Estamos en el ciclo 15 del mes anterior → 14 del mes actual
+    start = new Date(today.getFullYear(), today.getMonth() - 1, 15, 0, 0, 0);
+    end = new Date(today.getFullYear(), today.getMonth(), 14, 23, 59, 59);
+  }
+
+  return {
+    startISO: start.toISOString(),
+    endISO: end.toISOString(),
+  };
+}
+
+
+cargarStats() {
+const { startISO, endISO } = this.getCurrentPeriod();
+
+  this.statsService.getStats(startISO, endISO).subscribe((res: any[]) => {
     // Ordenar por apuesta mayor
     const sorted = res.sort((a, b) => b.wagered - a.wagered);
 
@@ -43,12 +66,37 @@ cargarStats() {
   });
 }
 
+// startCountdown() {
+//   const now = new Date();
+//   const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+
+//   setInterval(() => {
+//     const diff = endOfMonth.getTime() - new Date().getTime();
+
+//     this.countdown.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+//     this.countdown.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+//     this.countdown.minutes = Math.floor((diff / (1000 * 60)) % 60);
+//     this.countdown.seconds = Math.floor((diff / 1000) % 60);
+//   }, 1000);
+// }
+
+
 startCountdown() {
   const now = new Date();
-  const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  let end: Date;
+
+  const day = now.getDate();
+
+  if (day >= 15) {
+    // Cuenta regresiva al 14 del mes siguiente
+    end = new Date(now.getFullYear(), now.getMonth() + 1, 14, 23, 59, 59);
+  } else {
+    // Cuenta regresiva al 14 del mes actual
+    end = new Date(now.getFullYear(), now.getMonth(), 14, 23, 59, 59);
+  }
 
   setInterval(() => {
-    const diff = endOfMonth.getTime() - new Date().getTime();
+    const diff = end.getTime() - new Date().getTime();
 
     this.countdown.days = Math.floor(diff / (1000 * 60 * 60 * 24));
     this.countdown.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -56,5 +104,6 @@ startCountdown() {
     this.countdown.seconds = Math.floor((diff / 1000) % 60);
   }, 1000);
 }
+
 
 }
