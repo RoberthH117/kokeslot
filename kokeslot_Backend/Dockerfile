@@ -1,21 +1,19 @@
-﻿# Etapa 1 — Build
+﻿# =========================
+#   Build Stage
+# =========================
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-COPY *.csproj ./
+COPY . .
 RUN dotnet restore
+RUN dotnet publish -c Release -o /app
 
-COPY . ./
-RUN dotnet publish -c Release -o out
-
-# Etapa 2 — Runtime
+# =========================
+#   Runtime Stage
+# =========================
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/out .
 
-# Puerto donde corre tu API
-EXPOSE 8080
-
-ENV ASPNETCORE_URLS=http://+:8080
+COPY --from=build /app .
 
 ENTRYPOINT ["dotnet", "kokeslot_Backend.dll"]
