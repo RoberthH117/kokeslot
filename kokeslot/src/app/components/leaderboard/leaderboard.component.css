@@ -3,13 +3,7 @@
   text-align: center;
 }
 
-table {
-  margin: auto;
-  border-collapse: collapse;
-  width: 70%;
-  background: black;
-  color: white;
-}
+
 
 th, td {
   padding: 15px;
@@ -20,6 +14,11 @@ th {
   background: #222;
 } */
 
+
+table {
+  margin: 0 auto;
+ width: 90vw;
+}
 
 
 .leaderboard-container {
@@ -52,12 +51,13 @@ th {
 }
 
 .podium-item {
-  width: 200px;
+  width: 17vw;
   padding: 20px;
   background: #222;
   border-radius: 20px;
   box-shadow: 0 0 15px #ff00dd;
   border: 2px solid #ff00dd;
+  margin: 0 2vw;
 }
 
 .podium-item.first {
@@ -86,4 +86,17 @@ th {
 
 .tablatr{
   border-width: 2px;
+}
+
+.neon-cabecera {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
 }

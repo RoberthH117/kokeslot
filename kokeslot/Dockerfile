@@ -23,7 +23,7 @@ COPY --from=build /app/dist/kokeslot /usr/share/nginx/html
 
 
 # Copiar configuración de Nginx si quieres personalizar
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

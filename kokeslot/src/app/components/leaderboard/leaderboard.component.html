@@ -44,12 +44,13 @@
   </div>
 
   <!-- TABLA -->
-     <h4 class="mt-4">Periodo: 15/11/2025 al 14/12/2025</h4>
+     <h4 class="mt-4">Periodo: 15/12/2025 al 14/01/2026</h4>
+     
   <h2 class="mt-4">Leaderboard</h2>
 
-  <table class="table table-dark neon-table">
+  <table class="p table-dark neon-table">
     <thead>
-      <tr class="tablatr">
+      <tr class="tablatr neon-cabecera">
         <th>#</th>
         <th>Usuario</th>
         <th>Apostado</th>
@@ -59,7 +60,7 @@
 
     <tbody>
       <tr class="tablatr" *ngFor="let item of leaderboard; let i = index">
-        <td>{{ i + 4 }}</td> <!-- porque top3 son 1-3 -->
+        <td class="neon-cabecera">{{ i + 4 }}</td> <!-- porque top3 son 1-3 -->
         <td>{{ item.username }}</td>
         <td>{{ item.weightedWagered | number:'1.0-2' }}</td>
 
