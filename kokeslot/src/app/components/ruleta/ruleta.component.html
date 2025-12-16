@@ -15,19 +15,45 @@
       Girar Ruleta
     </button>
 
-    <div class="resultado" *ngIf="ganador">
+    <!-- <div class="resultado" *ngIf="ganador">
       Ganador: {{ ganador }}
-    </div>
+    </div> -->
 
-      <h2 class="textoinput">Validar usuario</h2>
-  <input [(ngModel)]="usuario" placeholder="Nombre de usuario" class="form-control w-50">
-  <button class="btn btn-info mt-2" (click)="validar()">Validar</button>
+<!-- Modal para validar usuario -->
 
-  <p *ngIf="resultado !== null" class="mt-3">
-    <strong class="textoinput">{{ resultado ? "El usuario pertenece a tu código" : "NO pertenece" }}</strong>
-  </p>
+<h2 class="textoinput">Validar usuario</h2>
 
+<input
+  [(ngModel)]="usuario"
+  placeholder="Nombre de usuario"
+  class="form-control w-50"
+/>
 
+<button class="btn btn-info mt-2" (click)="validar()">
+  Validar
+</button>
+
+<!-- MODAL -->
+<div class="custom-modal-backdrop" *ngIf="showModal">
+  <div class="custom-modal">
+    <h4 class="modal-title">
+      {{ resultado ? 'Usuario válido' : 'Usuario no válido' }}
+    </h4>
+
+    <p class="modal-message">
+      {{ resultado
+        ? 'El usuario pertenece a tu código de afiliado 🎉'
+        : 'Este usuario NO pertenece a tu código ❌'
+      }}
+    </p>
+
+    <button class="btn btn-primary w-100 mt-3" (click)="cerrarModalValidar()">
+      OK
+    </button>
+  </div>
+</div>
+
+<!-- Fin de modal -->
   
   </div>
 <!-- Modal de Ganador -->

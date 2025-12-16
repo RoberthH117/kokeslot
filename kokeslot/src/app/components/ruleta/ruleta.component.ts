@@ -16,10 +16,13 @@ export class RuletaComponent implements AfterViewInit {
     ){
   
   }
+
+    resultado: boolean | null = null;
+showModal = false;
+
   showWinnerModal = false;
 public ganadorNombre: string = '';
  usuario: string = "";
- resultado: boolean | null = null;
 
   usuarios: string[] = [];
   historial: string[] = [];
@@ -164,7 +167,20 @@ this.showWinnerModal = true;
     this.validateService.validateUser(this.usuario)
       .subscribe((res: any) => {
         this.resultado = res.isAffiliate; 
+        this.showModal = true;
+
       });
   }
+
+
+  // Seccion modal validar usuario
+
+
+cerrarModalValidar() {
+  this.showModal = false;
+  this.usuario="";
+}
+
+//Fin modal
 
 }

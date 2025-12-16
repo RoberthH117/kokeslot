@@ -10,7 +10,7 @@
 
 </div> -->
 
-
+<app-backround-animate-three></app-backround-animate-three>
 
 <div class="leaderboard-container">
 
@@ -59,12 +59,12 @@
     </thead>
 
     <tbody>
-      <tr class="tablatr" *ngFor="let item of leaderboard; let i = index">
+      <tr class="tablatr neon-cabecera" *ngFor="let item of leaderboard; let i = index">
         <td class="neon-cabecera">{{ i + 4 }}</td> <!-- porque top3 son 1-3 -->
-        <td>{{ item.username }}</td>
-        <td>{{ item.weightedWagered | number:'1.0-2' }}</td>
+        <td style="color: white;">{{ item.username }}</td>
+        <td style="color: white;">{{item.weightedWagered | number:'1.0-2' }}</td>
 
-        <td>
+        <td style="color: white;">
           <span *ngIf="i + 4 <= 5">
             🏆
             {{
