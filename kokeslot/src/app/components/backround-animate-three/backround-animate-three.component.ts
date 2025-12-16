@@ -53,6 +53,8 @@ export class BackroundAnimateThreeComponent implements AfterViewInit {
   private xTo = gsap.quickTo(this.mouse, 'x', { duration: 1.5, ease: 'expo' });
   private yTo = gsap.quickTo(this.mouse, 'y', { duration: 1.5, ease: 'expo' });
 
+  private active = true;
+
   ngAfterViewInit(): void {
     this.initCanvas();
     this.createParticles();
@@ -126,6 +128,7 @@ export class BackroundAnimateThreeComponent implements AfterViewInit {
   }
 
   private render() {
+    if (!this.active) return;
     this.ctx.clearRect(0, 0, this.cw, this.ch);
     this.ctx2.clearRect(0, 0, this.cw, this.ch);
 
@@ -181,4 +184,8 @@ export class BackroundAnimateThreeComponent implements AfterViewInit {
       ease: 'power2.inOut',
     });
   }
+
+  ngOnDestroy() {
+  this.active = false;
+}
 }

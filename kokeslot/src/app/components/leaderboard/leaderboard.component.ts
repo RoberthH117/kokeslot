@@ -11,6 +11,7 @@ export class LeaderboardComponent {
 stats: any = null;
   usuario: string = "";
   resultado: boolean | null = null;
+  private active = true;
 countdown = {
   days: 0,
   hours: 0,
@@ -84,7 +85,7 @@ const { startISO, endISO } = this.getCurrentPeriod();
 
   this.statsService.getStats(startISO, endISO).subscribe((res: any[]) => {
     // Ordenar por apuesta mayor
-    const sorted = res.sort((a, b) => b.wagered - a.wagered);
+    const sorted = res.sort((a, b) => b.weightedWagered - a.weightedWagered);
 
     this.top3 = sorted.slice(0, 3);
     this.leaderboard = sorted.slice(3);
@@ -129,6 +130,11 @@ startCountdown() {
     this.countdown.seconds = Math.floor((diff / 1000) % 60);
   }, 1000);
 }
+
+ngOnDestroy() {
+  this.active = false;
+}
+
 
 
 }
