@@ -25,19 +25,20 @@
   <!-- TOP 3 -->
   <div class="podium">
     <div class="podium-item second">
-      <h3>#2 {{ top3[1]?.username }}</h3>
+      <h3>#2 {{ top3[1]?.username | maskUsername }}</h3>
       <p class="card_text">Apostado: {{ top3[1]?.weightedWagered | number:'1.0-2' }}</p>
       <p class="prize">🏆 Premio: $100</p>
     </div>
 
     <div class="podium-item first">
-      <h2>#1 {{ top3[0]?.username }}</h2>
+      <h2>#1 {{ top3[0]?.username | maskUsername }}</h2>
+
       <p class="card_text">Apostado: {{ top3[0]?.weightedWagered | number:'1.0-2' }}</p>
       <p class="prize big">🥇 Premio: $250</p>
     </div>
 
     <div class="podium-item third">
-      <h3>#3 {{ top3[2]?.username }}</h3>
+      <h3>#3 {{ top3[2]?.username | maskUsername }}</h3>
       <p class="card_text">Apostado: {{ top3[2]?.weightedWagered | number:'1.0-2' }}</p>
       <p class="prize">🎉 Premio: $75</p>
     </div>
@@ -61,7 +62,7 @@
     <tbody>
       <tr class="tablatr neon-cabecera" *ngFor="let item of leaderboard; let i = index">
         <td class="neon-cabecera">{{ i + 4 }}</td> <!-- porque top3 son 1-3 -->
-        <td style="color: white;">{{ item.username }}</td>
+        <td style="color: white;">{{ item.username | maskUsername }}</td>
         <td style="color: white;">{{item.weightedWagered | number:'1.0-2' }}</td>
 
         <td style="color: white;">

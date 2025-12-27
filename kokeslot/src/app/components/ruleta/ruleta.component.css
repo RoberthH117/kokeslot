@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin: 0 auto;
 }
 
 .ruleta-wrapper {
@@ -37,7 +38,7 @@
 .flecha {
   position: absolute;
   top: -15px;
-  left: 50%;
+  left: 65%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
@@ -48,10 +49,12 @@
 }
 
 .btn-spin {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   padding: 10px 20px;
   font-size: 18px;
   margin-bottom: 30px;
+      margin: 180px auto auto 50%;
+
 }
 
 .lista-usuarios button {
@@ -100,27 +103,56 @@
   border-radius: 12px;
   padding: 25px;
   text-align: center;
-  width: 80%;
-  max-width: 350px;
+  width: 50%;
+  max-width: 100%;
   color: white;
   box-shadow: 0 0 20px gold;
 }
 
+
+.winner-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: gold;
+  text-shadow: 0 0 10px gold;
+}
+
+/* 🔥 NOMBRE DEL GANADOR */
+.winner-name {
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive */
+  font-weight: 800;
+  margin: 15px 0 25px;
+  color: #fff;
+
+  /* 👇 Solución nombres largos */
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.1;
+
+  text-shadow:
+    0 0 10px gold,
+    0 0 20px gold,
+    0 0 40px rgba(255, 215, 0, 0.7);
+}
+
+/* Botón */
 .btn-ok {
-  margin-top: 20px;
-  padding: 10px 25px;
   background: gold;
-  color: black;
   border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .btn-ok:hover {
-  transform: scale(1.1);
+  background: #ffd700;
+  transform: scale(1.05);
 }
+
 
 
 body {

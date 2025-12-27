@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BackroundAnimateThreeComponent } from './components/backround-animate-three/backround-animate-three.component';
+import { MaskUsernamePipe } from './pipes/mask-username.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BackroundAnimateThreeComponent } from './components/backround-animate-t
     RuletaComponent,
     NavbarComponent,
     BackroundAnimateThreeComponent,
+    MaskUsernamePipe
     
   ],
   imports: [

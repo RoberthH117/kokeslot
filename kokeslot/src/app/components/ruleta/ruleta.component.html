@@ -4,7 +4,7 @@
   <!-- IZQUIERDA: RULETA -->
   <div class="col-left">
     <div class="ruleta-wrapper">
-      <canvas id="ruletaCanvas" width="450" height="450"></canvas>
+      <canvas id="ruletaCanvas" width="600" height="600 "></canvas>
 
       <div class="flecha"></div>
     </div>
@@ -21,15 +21,18 @@
 
 <!-- Modal para validar usuario -->
 
-<h2 class="textoinput">Validar usuario</h2>
+<h2  style="margin: 0 auto auto 30%;
+" class="textoinput">Validar usuario</h2>
 
-<input
+<input style=" margin: 0 auto auto 30%;
+"
   [(ngModel)]="usuario"
   placeholder="Nombre de usuario"
   class="form-control w-50"
 />
 
-<button class="btn btn-info mt-2" (click)="validar()">
+<button style="    margin: 0 auto auto 30%;
+" class="btn btn-info mt-2" (click)="validar()">
   Validar
 </button>
 
@@ -56,15 +59,21 @@
 <!-- Fin de modal -->
   
   </div>
-<!-- Modal de Ganador -->
+
+  
+  <!-- Modal de Ganador -->
 <div class="winner-modal" [class.show]="showWinnerModal">
   <div class="winner-content">
-    <h2>🎉 ¡Ganador! 🎉</h2>
-    <p class="text_modal_ruleta">{{ ganadorNombre }}</p>
+    <h2 class="winner-title">🎉 ¡GANADOR! 🎉</h2>
+
+    <p class="winner-name" [title]="ganadorNombre">
+      {{ ganadorNombre }}
+    </p>
 
     <button (click)="cerrarModal()" class="btn-ok">OK</button>
   </div>
 </div>
+
 
   <!-- DERECHA: CONTROLES -->
 <div class="col-right">
