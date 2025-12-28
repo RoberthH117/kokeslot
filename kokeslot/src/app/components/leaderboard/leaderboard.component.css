@@ -53,7 +53,6 @@ table {
 
 .podium-item {
   width: 17vw;
-  padding: 20px;
   background: #222;
   border-radius: 20px;
   box-shadow: 0 0 15px #ff00dd;
@@ -151,3 +150,39 @@ font-size: 3.5vw;
 
 }
 }
+
+@media (min-width: 800px) { 
+.podium-item {
+  width: 20vw;
+}
+
+.prize.big {
+  font-size: 1vw;
+}
+
+.card_text_1{
+  font-size: 2vw;
+  text-align: center;
+
+}
+.card_text{
+  font-size: 1.8vw;
+  text-align: center;
+
+}
+.prize {
+font-size: 1.5vw;
+}
+
+.card_text_23{
+font-size: 1.9vw;
+}
+
+.tablatr{
+  border-width: 2px;
+  font-size: 1.5vw;
+
+}
+
+}
+
