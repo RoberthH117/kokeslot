@@ -31,8 +31,8 @@
 
 .ruleta-wrapper {
   position: relative;
-  width: 450px;
-  height: 450px;
+  /* width: 450px;
+  height: 450px; */
 }
 
 .flecha {
@@ -53,7 +53,6 @@
   padding: 10px 20px;
   font-size: 18px;
   margin-bottom: 30px;
-      margin: 180px auto auto 50%;
 
 }
 
@@ -171,8 +170,7 @@ body {
 
 /* ----- CONTENEDOR GENERAL ----- */
 .col-right {
-  width: 40%;
-  padding: 20px;
+  width: 50%;
   color: white;
 }
 
@@ -327,4 +325,71 @@ color: white;
 
 .text_modal_ruleta{
   font-size: 3.8vw
+}
+
+
+
+
+@media (min-width: 300px) { 
+.ruleta_size{
+    width: 35vw;
+     max-width: 700px;
+  aspect-ratio: 1 / 1;
+    margin-left: 0vw;
+    margin-top: 1vh;
+}
+
+.flecha {
+    left: 43%;
+
+}
+.btn-spin {
+  /* margin-top: 20px; */
+      margin-left: 4vw;
+
+}
+
+.text_user{
+  margin-left: 10vw;
+  color: white;
+}
+
+.textoinput {
+
+    text-align: center;
+    font-size: 5vw;
+}
+
+
+}
+
+@media (min-width: 600px) { 
+
+  .text_user{
+  margin-left: 0vw;
+}
+  .form-control{
+    width: 30vw;
+  }
+
+  .btn-spin {
+  /* margin-top: 20px; */
+      margin-left: 0vw;
+
+}
+
+}
+
+@media (min-width: 800px) { 
+
+  .col-right{
+    width: 40%;
+   
+}
+
+.textoinput {
+
+    font-size: 3vw;
+}
+
 }

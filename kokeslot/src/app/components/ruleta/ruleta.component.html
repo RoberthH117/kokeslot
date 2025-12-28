@@ -4,7 +4,7 @@
   <!-- IZQUIERDA: RULETA -->
   <div class="col-left">
     <div class="ruleta-wrapper">
-      <canvas id="ruletaCanvas" width="600" height="600 "></canvas>
+      <canvas id="ruletaCanvas" class="ruleta_size"></canvas>
 
       <div class="flecha"></div>
     </div>
@@ -21,18 +21,15 @@
 
 <!-- Modal para validar usuario -->
 
-<h2  style="margin: 0 auto auto 30%;
-" class="textoinput">Validar usuario</h2>
+<h2 class=" text_user">Validar usuario</h2>
 
-<input style=" margin: 0 auto auto 30%;
-"
+<input 
   [(ngModel)]="usuario"
   placeholder="Nombre de usuario"
-  class="form-control w-50"
+  class="form-control "
 />
 
-<button style="    margin: 0 auto auto 30%;
-" class="btn btn-info mt-2" (click)="validar()">
+<button class="btn btn-info mt-2" (click)="validar()">
   Validar
 </button>
 

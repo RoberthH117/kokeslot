@@ -41,6 +41,18 @@ public ganadorNombre: string = '';
   }
 
   generarRuleta() {
+
+      const canvas = document.getElementById('ruletaCanvas') as HTMLCanvasElement;
+
+  // Tamaño real según pantalla
+  const size = Math.min(
+    window.innerWidth * 0.6,
+    420 // límite máximo
+  );
+
+  canvas.width = size;
+  canvas.height = size;
+    
     let segmentos;
 
     if (this.usuarios.length === 0) {

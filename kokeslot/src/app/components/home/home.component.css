@@ -81,3 +81,80 @@
   font-weight: bold;
 }
 
+
+
+
+@media (min-width: 990px) { 
+
+  .logo {
+  margin-bottom: -70px;
+}
+
+.subtitle {
+margin-bottom: 10rem;
+}
+
+
+}
+
+
+@media (min-width: 500px) { 
+
+  .logo {
+margin-top: -28vh;
+        width: 60vw;
+        /* margin-bottom: -15vh; */
+}
+}
+
+
+@media (min-width: 600px) { 
+
+  .logo {
+
+        width: 50vw;
+
+}
+}
+
+@media (min-width: 700px) { 
+
+  .logo {
+
+        width: 45vw;
+
+}
+}
+
+@media (min-width: 800px) { 
+
+  .logo {
+
+        width: 40vw;
+
+}
+}
+@media (min-width: 900px) { 
+
+  .logo {
+
+        width: 35vw;
+
+}
+}
+
+@media (min-width: 990px) { 
+
+  .logo {
+
+     margin-top: 1vh;
+}
+}
+
+@media (min-width: 1100px) { 
+
+  .logo {
+
+     width: 30vw;
+}
+}

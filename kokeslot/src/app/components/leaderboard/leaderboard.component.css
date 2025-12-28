@@ -105,3 +105,49 @@ table {
   font-size: 1.8vw;
 }
 
+
+
+@media (min-width: 300px) { 
+
+.card_text_1{
+  font-size: 3vw;
+  text-align: center;
+
+}
+.card_text{
+  font-size: 2.8vw;
+  text-align: center;
+
+}
+
+.card_text_23{
+font-size: 2.9vw;
+}
+
+.podium-item {
+  width: 24vw;
+}
+
+.prize.big {
+  font-size: 4vw;
+}
+
+.tablatr{
+  border-width: 2px;
+  font-size: 4.5vw;
+
+}
+
+.prize {
+font-size: 3.5vw;
+}
+
+}
+
+@media (min-width: 500px) { 
+.tablatr{
+  border-width: 2px;
+  font-size: 2.5vw;
+
+}
+}

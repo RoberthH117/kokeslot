@@ -28,3 +28,72 @@
   color: white;
 }
 
+@media (min-width: 300px) { 
+
+  .navbar {
+  justify-content: space-between;
+  padding: 0px 0px;
+}
+.navbar a {
+
+  font-size: 13px;
+}
+}
+
+@media (min-width: 400px) { 
+
+  .navbar {
+  justify-content: space-between;
+  padding: 0px 3vw;
+}
+.navbar a {
+
+  font-size: 4vw;
+}
+}
+
+@media (min-width: 500px) { 
+
+  .navbar {
+  justify-content: center;
+  padding: 0px ;
+}
+.navbar a{
+  font-size: 25px;
+}
+
+}
+
+@media (min-width: 700px) { 
+
+  .navbar {
+  justify-content: space-around;
+}
+
+}
+
+@media (min-width: 700px) { 
+
+  .navbar {
+  justify-content: space-between;
+  padding: 0px 21px;
+}
+
+}
+
+@media (min-width: 990px) { 
+
+  .navbar {
+  padding: 0px 41px;
+}
+
+}
+
+@media (min-width: 1200px) { 
+
+  .navbar {
+  padding: 0px 5vw;
+}
+
+}
+
