@@ -27,14 +27,14 @@
     <div class="podium-item second">
       <h3 class="card_text_23">#2 {{ top3[1]?.username | maskUsername }}</h3>
       <p class="card_text">Apostado: {{ top3[1]?.weightedWagered | number:'1.0-2' }}</p>
-      <p class="prize">🏆 Premio: $100</p>
+      <p class="prize">🥇 Premio: $100</p>
     </div>
 
     <div class="podium-item first">
       <h2 class="card_text_1">#1 {{ top3[0]?.username | maskUsername }}</h2>
 
       <p class="card_text">Apostado: {{ top3[0]?.weightedWagered | number:'1.0-2' }}</p>
-      <p class="prize big">🥇 Premio: $250</p>
+      <p class="prize big">🏆 Premio: $250</p>
     </div>
 
     <div class="podium-item third">
@@ -84,7 +84,7 @@
   </table>
 
   <!-- REGLAS -->
-<div class="leaderboard-rules mt-4">
+<div class="leaderboard-rules ">
   <h3>Reglas de la Clasificación (Leaderboard Rules)</h3>
 
   <p>
