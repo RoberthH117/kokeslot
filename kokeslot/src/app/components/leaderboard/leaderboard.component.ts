@@ -88,7 +88,7 @@ const { startISO, endISO } = this.getCurrentPeriod();
     const sorted = res.sort((a, b) => b.weightedWagered - a.weightedWagered);
 
     this.top3 = sorted.slice(0, 3);
-    this.leaderboard = sorted.slice(3);
+     this.leaderboard = sorted.slice(3, 30);
   });
 }
 
