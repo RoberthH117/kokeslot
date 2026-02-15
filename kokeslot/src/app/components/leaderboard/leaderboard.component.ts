@@ -55,23 +55,51 @@ ngOnInit() {
 // }
 
 
+// getCurrentPeriod() {
+//   const today = new Date();
+//   let start: Date;
+//   let end: Date;
+
+//   const day = today.getDate();
+//   const year = today.getFullYear();
+//   const month = today.getMonth();
+
+//   if (day >= 15) {
+//     // 15 del mes actual → 14 del mes siguiente
+//     start = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+//     end   = new Date(Date.UTC(year, month + 1, 14, 23, 59, 59));
+//   } else {
+//     // 15 del mes anterior → 14 del mes actual
+//     start = new Date(Date.UTC(year, month - 1, 15, 0, 0, 0));
+//     end   = new Date(Date.UTC(year, month, 14, 23, 59, 59));
+//   }
+
+//   return {
+//     startISO: start.toISOString(),
+//     endISO: end.toISOString(),
+//   };
+// }
+
 getCurrentPeriod() {
-  const today = new Date();
+  const now = new Date();
+
+  const year = now.getUTCFullYear();
+  const month = now.getUTCMonth();
+
+  // 🔥 Corte real: 15 a las 00:00 UTC (21:00 Argentina del 14)
+  const cutoff = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+
   let start: Date;
   let end: Date;
 
-  const day = today.getDate();
-  const year = today.getFullYear();
-  const month = today.getMonth();
-
-  if (day >= 15) {
-    // 15 del mes actual → 14 del mes siguiente
+  if (now >= cutoff) {
+    // Nuevo período
     start = new Date(Date.UTC(year, month, 15, 0, 0, 0));
-    end   = new Date(Date.UTC(year, month + 1, 14, 23, 59, 59));
+    end   = new Date(Date.UTC(year, month + 1, 15, 0, 0, 0));
   } else {
-    // 15 del mes anterior → 14 del mes actual
+    // Período actual
     start = new Date(Date.UTC(year, month - 1, 15, 0, 0, 0));
-    end   = new Date(Date.UTC(year, month, 14, 23, 59, 59));
+    end   = cutoff;
   }
 
   return {
@@ -107,18 +135,44 @@ const { startISO, endISO } = this.getCurrentPeriod();
 // }
 
 
+// startCountdown() {
+//   const now = new Date();
+//   let end: Date;
+
+//   const day = now.getDate();
+
+//   if (day >= 15) {
+//     // Cuenta regresiva al 14 del mes siguiente
+//     end = new Date(now.getFullYear(), now.getMonth() + 1, 14, 23, 59, 59);
+//   } else {
+//     // Cuenta regresiva al 14 del mes actual
+//     end = new Date(now.getFullYear(), now.getMonth(), 14, 23, 59, 59);
+//   }
+
+//   setInterval(() => {
+//     const diff = end.getTime() - new Date().getTime();
+
+//     this.countdown.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+//     this.countdown.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+//     this.countdown.minutes = Math.floor((diff / (1000 * 60)) % 60);
+//     this.countdown.seconds = Math.floor((diff / 1000) % 60);
+//   }, 1000);
+// }
+
 startCountdown() {
   const now = new Date();
+
+  const year = now.getUTCFullYear();
+  const month = now.getUTCMonth();
+
+  const cutoff = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+
   let end: Date;
 
-  const day = now.getDate();
-
-  if (day >= 15) {
-    // Cuenta regresiva al 14 del mes siguiente
-    end = new Date(now.getFullYear(), now.getMonth() + 1, 14, 23, 59, 59);
+  if (now >= cutoff) {
+    end = new Date(Date.UTC(year, month + 1, 15, 0, 0, 0));
   } else {
-    // Cuenta regresiva al 14 del mes actual
-    end = new Date(now.getFullYear(), now.getMonth(), 14, 23, 59, 59);
+    end = cutoff;
   }
 
   setInterval(() => {
