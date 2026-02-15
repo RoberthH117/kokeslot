@@ -9,6 +9,7 @@ import { AffiliateValidateService } from 'src/app/services/affiliate.service';
 })
 export class LeaderboardComponent {
 stats: any = null;
+periodLabel: string = '';
   usuario: string = "";
   resultado: boolean | null = null;
   private active = true;
@@ -27,6 +28,7 @@ top3: any[] = [];
   ) {}  
 
 ngOnInit() {
+  this.generatePeriodLabel();
   this.startCountdown();
   this.cargarStats();
 }
@@ -79,6 +81,36 @@ ngOnInit() {
 //     endISO: end.toISOString(),
 //   };
 // }
+
+generatePeriodLabel() {
+  const now = new Date();
+
+  const year = now.getUTCFullYear();
+  const month = now.getUTCMonth();
+
+  const cutoff = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+
+  let start: Date;
+  let end: Date;
+
+  if (now >= cutoff) {
+    start = new Date(Date.UTC(year, month, 15, 0, 0, 0));
+    end   = new Date(Date.UTC(year, month + 1, 14, 21, 0, 0)); // 21:00 ARG
+  } else {
+    start = new Date(Date.UTC(year, month - 1, 15, 0, 0, 0));
+    end   = new Date(Date.UTC(year, month, 14, 21, 0, 0));
+  }
+
+  const format = (date: Date) => {
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const year = date.getUTCFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  this.periodLabel = `Periodo: ${format(start)} al ${format(end)} (9PM hora Argentina)`;
+}
+
 
 getCurrentPeriod() {
   const now = new Date();
