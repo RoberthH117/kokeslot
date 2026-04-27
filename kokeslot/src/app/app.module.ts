@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BackroundAnimateThreeComponent } from './components/backround-animate-three/backround-animate-three.component';
 import { MaskUsernamePipe } from './pipes/mask-username.pipe';
+import { BiographyComponent } from './components/biography/biography.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaskUsernamePipe } from './pipes/mask-username.pipe';
     RuletaComponent,
     NavbarComponent,
     BackroundAnimateThreeComponent,
-    MaskUsernamePipe
+    MaskUsernamePipe,
+    BiographyComponent
     
   ],
   imports: [
