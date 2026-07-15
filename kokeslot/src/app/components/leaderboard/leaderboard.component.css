@@ -138,6 +138,7 @@ table {
 
 .card_text{
   font-size: 1.8vw;
+  margin-top: 25px;
 }
 
 
@@ -147,16 +148,19 @@ table {
 .card_text_1{
   font-size: 3vw;
   text-align: center;
+  margin-top: 25px;
 
 }
 .card_text{
   font-size: 2.8vw;
   text-align: center;
+  margin-top: 25px;
 
 }
 
 .card_text_23{
 font-size: 2.9vw;
+margin-top: 25px;
 }
 
 .podium-item {
